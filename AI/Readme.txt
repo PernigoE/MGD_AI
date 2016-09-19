@@ -1,0 +1,1 @@
+SFML Linker Lib Debug: openal32.lib;opengl32.lib;sfml-audio-d.lib;sfml-graphics-d.lib; sfml-window-d.lib;sfml-system-d.lib;
