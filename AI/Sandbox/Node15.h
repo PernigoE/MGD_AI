@@ -3,12 +3,19 @@
 #include <list>
 #include <iostream>
 
-#include <hash_map>
+int ArrayHash(int arr[],int size)
+{
+	std::hash<int> h;
+}
 
 struct Node15
 {
 	int State[16];
 	std::list<Node15*> m_aAdj;
+
+	
+	
+
 
 	int m_iH;
 	int m_iG;
@@ -18,6 +25,8 @@ struct Node15
 
 	Node15()
 	{
+
+		h(1);
 		m_iH = 0;
 		m_iG = 0;
 		m_iF = 0;
