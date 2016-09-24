@@ -30,6 +30,20 @@ private:
 	void AdjZeroLeft(Node15*);
 	void AdjZeroRight(Node15*);
 
+	//provo a riscrivere le mossi in questo modo. Mi è utile anche per lo start node.
+	enum MOVES
+	{
+		UP = -4,
+		DOWN = 4,
+		LEFT = -1,
+		RIGHT = 1
+	};
+
+	const MOVES Moves[4] = { UP, DOWN, LEFT, RIGHT };
+	Node15* NeighbourByMove(Node15*, MOVES);
+
+	////////////////////////////////////////////
+
     void CreateGraph();
     void CreateGraphAdjs();
 	void CreateNodeAdj(Node15* node);

@@ -68,7 +68,7 @@ void FifteenPuzzleScene::OnDraw(sf::RenderWindow& renderWindow)
 			renderWindow.draw(m_aoTexts[i]);
 		}
 	}
-	std::string s = "Distance from solution = " + std::to_string(n->m_iH);
+	std::string s = "Moves = " + std::to_string(n->m_iG);
 	m_aoTexts[16].setString(s);
 	renderWindow.draw(m_aoTexts[16]);
 }

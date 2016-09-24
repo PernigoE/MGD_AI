@@ -3,6 +3,8 @@
 #include <list>
 #include <iostream>
 
+#include <hash_map>
+
 struct Node15
 {
 	int State[16];
@@ -25,6 +27,7 @@ struct Node15
 
 	Node15(Node15& other)
 	{
+		//qui li metto a zero perchè creo un nuovo nodo e uso solo quello di partenza come base.
 		m_iH = 0;
 		m_iG = 0;
 		m_iF = 0;
@@ -33,21 +36,23 @@ struct Node15
 		{
 			State[i] = other.State[i];
 		}
-		m_pParent = &other;
+		
+		m_pParent = &other; //si, perchè voglio il nodo di partenza come parent per creare le mosse
 	}
 
 	Node15& operator=(Node15& other)
 	{
-		m_iH = 0;
-		m_iG = 0;
-		m_iF = 0;
+		m_iH = other.m_iH; //l'euristica rimane uguale
+		//questi due preferisco copiarmeli nel caso volessi fare un controllo
+		m_iG = other.m_iG;
+		m_iF = other.m_iF;
 
 		for (int i = 0; i < 16; ++i)
 		{
 			State[i] = other.State[i];
 		}
 
-		m_pParent = &other;
+		m_pParent = other.m_pParent; // devo copiare anche il parent
 
 		return *this;
 	}
