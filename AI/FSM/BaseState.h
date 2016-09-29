@@ -1,8 +1,5 @@
 #pragma once
 
-#include "BaseState.h"
-#include "Therm.h"
-
 template<class T>
 class BaseState
 {

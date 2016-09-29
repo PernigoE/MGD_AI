@@ -1,13 +1,13 @@
 #pragma once
 
-#include "ThermIdle.h"
+
 #include "BaseState.h"
 #include "Therm.h"
 
 class ThermHeat : public BaseState<Therm>
 {
 private:
-	ThermHeat();
+	ThermHeat() = default;
 
 public:
 	static ThermHeat* Instance()
@@ -21,15 +21,7 @@ public:
 
 	}
 
-	void OnUpdate(Therm* a)
-	{
-		if (a->GetTemp() > a->GetTempLimit())
-		{
-			a->GetFSM()->DoTransition(ThermIdle::Instance());
-			std::cout << "Therm Off\n";
-		}
-	}
-
+	void OnUpdate(Therm* a);
 	void OnExit(Therm* a)
 	{
 

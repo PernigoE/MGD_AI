@@ -7,34 +7,34 @@ template<typename Agent>
 class FSM
 {
 private:
-	BaseState *m_pCurrentState;
+	BaseState<Agent> *m_pCurrentState;
 
 public:
 	FSM() = delete;
-	FSM(BaseState* state)
+	FSM(BaseState<Agent>* state)
 	{
 		m_pCurrentState = state;
 	}
 
-	void Start()
+	void Start(Agent* agent)
 	{
-		m_pCurrentState->OnEnter();
+		m_pCurrentState->OnEnter(agent);
 	}
 
-	void DoTransition(BaseState* next)
+	void DoTransition(Agent* agent, BaseState<Agent>* next)
 	{
-		m_pCurrentState->OnExit();
+		m_pCurrentState->OnExit(agent);
 		m_pCurrentState = next;
-		m_pCurrentState->OnEnter();
+		m_pCurrentState->OnEnter(agent);
 	}
 
-	void Update()
+	void Update(Agent* agent)
 	{
-		m_pCurrentState->OnUpdate();
+		m_pCurrentState->OnUpdate(agent);
 	}
 
-	void Exit()
+	void Exit(Agent* agent)
 	{
-		m_pCurrentState->OnExit();
+		m_pCurrentState->OnExit(agent);
 	}
 };

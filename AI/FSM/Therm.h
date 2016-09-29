@@ -1,21 +1,18 @@
 #pragma once
 
 #include "FSM.h"
-#include "ThermIdle.h"
+//#include "ThermIdle.h"
 #include <iostream>
 
 class Therm
 {
 private:
 	FSM<Therm>* m_oFSM;
-	float m_fTemp;
-	float m_fTempLimit;
+	float m_fTemp = 12;
+	float m_fTempLimit = 15;
 
 public:
-	Therm()
-	{
-		m_oFSM = new FSM<Therm>(ThermIdle::Instance());
-	}
+	Therm();
 
 	float GetTemp() const
 	{
@@ -34,6 +31,6 @@ public:
 
 	void Update()
 	{
-		m_oFSM->Update();
+		m_oFSM->Update(this);
 	}
 };

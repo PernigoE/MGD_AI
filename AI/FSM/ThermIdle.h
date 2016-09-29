@@ -2,12 +2,11 @@
 
 #include "BaseState.h"
 #include "Therm.h"
-#include "ThermHeat.h"
 
 class ThermIdle : public BaseState<Therm>
 {
 private:
-	ThermIdle();
+	ThermIdle() = default;
 
 public:
 	static ThermIdle* Instance()
@@ -21,14 +20,7 @@ public:
 		
 	}
 
-	void OnUpdate(Therm* a)
-	{
-		if (a->GetTemp() < a->GetTempLimit())
-		{
-			a->GetFSM()->DoTransition(ThermHeat::Instance());
-			std::cout << "Therm On\n";
-		}
-	}
+	void OnUpdate(Therm* a);
 
 	void OnExit(Therm* a)
 	{
