@@ -4,8 +4,19 @@
 #include "Vector2.h"
 #include <vector>
 
-class Agent;
-class Place;
+class Agent
+{
+public:
+	Vector2 currVel;
+
+	float maxVel = 5;
+	float arriveLimit = 10;
+	Vector2 pos;
+};
+
+class Place
+{
+};
 
 class SteeringBehaviors
 {
@@ -103,11 +114,22 @@ private:
 
 	void SumForces();
 
+	//moto rettilineo uniforme direzione da agent a target
 	Vector2 Seek(const Vector2& target);
+	//scappo da target -seek
 	Vector2 Flee(const Vector2& target);
+	//direzione agent target, arrivo rallentando
 	Vector2 Arrive(const Vector2& target);
+	//intercetto il target nel tempo in cui lo raggiungero
+	//distanza agent target / agent_max_vel + target_vel = t
+	//pos_finale = target pos + target_vel * t
+	//seek agent pos_finale
 	Vector2 Pursuit(const Agent* target);
+	//vedi sopra, flee da retta pos_finale e target
 	Vector2 Evade(const Agent* target);
+	//no scope, circonferenza in posizione della mia velocita
+	//seek in un punto random di questa circonferenza
+	//cambio in intervalli regolari su questa circonferenza
 	Vector2 Wander();
 	Vector2 ObstacleAvoidance();
 	Vector2 WallAvoidance(const Vector2& target);

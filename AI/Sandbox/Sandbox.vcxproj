@@ -131,10 +131,18 @@
     <ClCompile Include="LoadingScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuScene.cpp" />
+    <ClCompile Include="Miner.cpp" />
+    <ClCompile Include="MinerIdle.cpp" />
     <ClCompile Include="MinerScene.cpp" />
+    <ClCompile Include="MinerSleep.cpp" />
+    <ClCompile Include="MinerTravel.cpp" />
+    <ClCompile Include="MinerWork.cpp" />
+    <ClCompile Include="SteeringBehaviors.cpp" />
     <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\FSM\BaseState.h" />
+    <ClInclude Include="..\FSM\FSM.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="AStar.h" />
     <ClInclude Include="AStar15.h" />
@@ -146,7 +154,12 @@
     <ClInclude Include="IScene.h" />
     <ClInclude Include="LoadingScene.h" />
     <ClInclude Include="MainMenuScene.h" />
+    <ClInclude Include="Miner.h" />
+    <ClInclude Include="MinerIdle.h" />
+    <ClInclude Include="MinerSleep.h" />
     <ClInclude Include="MinerScene.h" />
+    <ClInclude Include="MinerTravel.h" />
+    <ClInclude Include="MinerWork.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Node15.h" />
     <ClInclude Include="NodeState.h" />
@@ -157,6 +170,11 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="sansation.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FSM\FSM.vcxproj">
+      <Project>{e0bc1d0f-8db1-4bd9-af63-33b97d61f12c}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

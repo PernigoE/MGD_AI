@@ -3,11 +3,6 @@
 #include <list>
 #include <iostream>
 
-int ArrayHash(int arr[],int size)
-{
-	std::hash<int> h;
-}
-
 struct Node15
 {
 	int State[16];
@@ -25,8 +20,6 @@ struct Node15
 
 	Node15()
 	{
-
-		h(1);
 		m_iH = 0;
 		m_iG = 0;
 		m_iF = 0;

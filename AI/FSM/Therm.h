@@ -14,6 +14,11 @@ private:
 public:
 	Therm();
 
+	void SetTemp(float temp)
+	{
+		m_fTemp = temp;
+	}
+
 	float GetTemp() const
 	{
 		return m_fTemp;

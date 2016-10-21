@@ -16,14 +16,9 @@ public:
 		return &s;
 	}
 
-	void OnEnter(Therm* a)
-	{
-
-	}
+	void OnEnter(Therm* a);
 
 	void OnUpdate(Therm* a);
-	void OnExit(Therm* a)
-	{
 
-	}
+	void OnExit(Therm* a);
 };
